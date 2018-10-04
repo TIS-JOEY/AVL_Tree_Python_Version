@@ -124,8 +124,8 @@ Class AVL_Tree:
 
 首先是以下這個不平衡的二叉樹，藍色節點的平衡點數應為-2，橘色的平衡點數則為-1，在這種狀況下應該進行轉換以平衡，以橘色的節點為基準進行左轉。。
 
-![image](普通左轉.png)
-![](.gitbook/assets/pu-tong-zuo-zhuan.png)
+![image](image/complex_should_rotateLeft.png)
+![image](image/complex_rotateLeft.png)
 
 但有時我們會遇到一個情況那就是基準節點已有左節點，那這時該怎麼辦呢？那就是將被左轉的右節點設為基準節點的左節點，因為被左轉的右節點即為後來的基準點，肯定沒東西。 以下圖為例，橘色節點的平衡點數為-2，需要重新平衡。
 
@@ -163,9 +163,9 @@ Class AVL_Tree:
 
 遇到LR類型時，一樣也不能直接左轉，而必須先右轉轉換成LL類型，再進行左轉完成調整。
 
-![](.gitbook/assets/lr-lei-xing-xian-zuo-zhuan.png)
+![image](image/LR_should.png)
 
-![](.gitbook/assets/lr-lei-xing-wan-cheng.png)
+![image](image/LR_done.png)
 
 好了，有了以下概念，我們可以知道最基本的動作就是左轉和右轉，因此先讓我們來編寫左轉和右轉以及rebalance物件方法。
 
