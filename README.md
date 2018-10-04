@@ -124,40 +124,39 @@ Class AVL_Tree:
 
 首先是以下這個不平衡的二叉樹，藍色節點的平衡點數應為-2，橘色的平衡點數則為-1，在這種狀況下應該進行轉換以平衡，以橘色的節點為基準進行左轉。。
 
-![image](image/complex_should_rotateLeft.png)
-![image](image/complex_rotateLeft.png)
+![image](image/rotateLeft.png)
 
 但有時我們會遇到一個情況那就是基準節點已有左節點，那這時該怎麼辦呢？那就是將被左轉的右節點設為基準節點的左節點，因為被左轉的右節點即為後來的基準點，肯定沒東西。 以下圖為例，橘色節點的平衡點數為-2，需要重新平衡。
 
-![](.gitbook/assets/fu-za-ying-gai-zuo-zhuan.png)
+![image](image/complex_should_rotateLeft.png)
 
 這時我們一樣以藍色節點為基準點進行左轉，這時藍色節點的左子節點應為橘色節點，這時該怎麼辦呢？答案就是將紅色節點接到橘色節點的右子節點，因爲紅色節點的值必大於橘色節點，作為橘色節點的右子節點是沒問題的。另外，因原橘色節點的右子節點為藍色節點，所以一定不會發生節點衝突的現象。
 
-![](.gitbook/assets/fu-za-zuo-zhuan.png)
+![image](image/complex_rotateLeft.png)
 
 #### LL類型
 
 接著讓我們來看看下面這種狀況，綠色節點的平衡數值為2，橘色節點的平衡數值為1，不平衡，所以需要進行右轉的動作。
 
-![](.gitbook/assets/pu-tong-you-zhuan.png)
+![image](image/rotateRight1.png)
 
 除了上述這種狀況，當然也會有一種情況是基準點是有右子節點的，進而產生衝突，如下：
 
-![](.gitbook/assets/fu-za-ying-gai-you-zhuan.png)
+![image](image/complex_should_rotateRight.png)
 
 這時，只要將淺藍色節點的左子節點來作為橘色節點的左子節點，且因為橘色節點的左節點為淺藍色節點，所以不用害怕產生衝突。
 
-![](.gitbook/assets/fu-za-you-zhuan.png)
+![image](image/complex_rotateRight.png)
 
 #### RL類型
 
 再來看看下面這張圖，淺藍色的平衡數值為-2，橘色節點的平衡數值為2，所以必須要進行調整，但這時需要先以綠色節點作為基準進行右轉，轉換成RR類型，在進行左轉。在這裡若直接以綠色節點為基準點往左轉，紅色節點就會到綠色節點的右子節點，但這樣就不符合inorder的順序。遇到RL類型，以綠色節點作為基準點進行右轉，就可以轉換為RR類型。
 
-![](.gitbook/assets/shouldrl-lei-xing.png)
+![image](image/RL_should.png)
 
 當轉換為RR類型後，就可以進行左轉轉換。
 
-![](.gitbook/assets/rl-lei-xing-chu-li.png)
+![image](image/RL_done.png)
 
 #### LR類型
 
