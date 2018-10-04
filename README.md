@@ -352,13 +352,13 @@ new_node.factor = new_node.factor -1 - max(old_node.factor,0)
 
 而若取代節點的父節點沒有其他子節點，就要進行向上更新的動作。
 
-![image](image/delete_middle1.png)
+![image](image/delete_middle2.png)
 
 但若其父節點有其他子節點，就要進行左轉或右轉，取決於取代點是在左子樹或右子樹，若為左子樹則進行左轉動作，反之右子樹則進行右轉。如下：
 
 下圖就是展示若取代節點的父節點有其他子節點，
 
-![](.gitbook/assets/delete_middle2.png)
+![](.gitbook/assets/delete_middle_node.png)
 
 > 注意：每次我們都會選出一個節點來取代被刪除的點\(除了被刪除的點為葉子節點\)，這時取代點的父節點都要進行平衡數值的更新，若取代點為其父節點的左子節點，則其父節點的平衡數值應-1，反之則要+1。
 
