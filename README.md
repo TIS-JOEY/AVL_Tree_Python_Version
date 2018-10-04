@@ -262,7 +262,7 @@ class AVL_Tree:
 
 #### 左轉factor更新
 
-![](.gitbook/assets/zuo-zhuan-factor.png)
+![image](image/rotate_factor_renew.png)
 
 先來處理A節點：
 
@@ -328,17 +328,13 @@ new_node.factor = new_node.factor -1 - max(old_node.factor,0)
 
 情況一：左子樹最小值有右子節點，在這種情況下要進行左轉，以確保左子樹最小值節點為葉子節點，因為如果他有子節點的話，他之後拿去替代其他節點時，其子節點就會很尷尬了。
 
-![](.gitbook/assets/delete_root1.png)
-
-![](.gitbook/assets/delete_root1%20%281%29.png)
+![image](image/delete_root1.png)
 
 > 可以看到，因為最小值節點父節點還有右子節點，所以上面的平衡數值不會受到影響。
 
 情況二：左子樹最小值節點為葉子節點，這時就要往上進行平衡數值的更新，因為會產生影響，而當出現平衡數值&gt;1或&lt;-1時，就跟增加節點時一樣的處理骯法。
 
-![](.gitbook/assets/delete_root2.png)
-
-![](.gitbook/assets/delete_root2%20%281%29.png)
+![image](image/delete_root2.png)
 
 情況三：刪除的的根節點沒有左子節點，這時很簡單，只要直接將原根節點的左子節點設為根節點即可。
 
@@ -348,7 +344,7 @@ new_node.factor = new_node.factor -1 - max(old_node.factor,0)
 
 刪除葉子節點也相較比較單純一點，只要直接將其刪除，並檢查若其父節點沒有其他子節點的話就要向上進行平衡數值的更新，而當出現平衡數值&gt;1或&lt;-1時，，就跟增加節點時一樣的處理方法。
 
-![](.gitbook/assets/delete_leaf.png)
+
 
 #### 刪除中介節點
 
@@ -356,7 +352,7 @@ new_node.factor = new_node.factor -1 - max(old_node.factor,0)
 
 而若取代節點的父節點沒有其他子節點，就要進行向上更新的動作。
 
-![](.gitbook/assets/delete_middle2%20%281%29.png)
+![image](image/delete_middle1.png)
 
 但若其父節點有其他子節點，就要進行左轉或右轉，取決於取代點是在左子樹或右子樹，若為左子樹則進行左轉動作，反之右子樹則進行右轉。如下：
 
